@@ -36,3 +36,5 @@ void calcFib() {
 	cin >> number;
 	cout << "Fibonacci number: " << fib(number);
 }
+
+// test comment
