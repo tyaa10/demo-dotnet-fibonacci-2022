@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -13,15 +14,20 @@ int main()
 	calcFib();
 }
 
-unsigned int fib(unsigned int n) {
-	if (n == 0)
+unsigned int fib(const unsigned int n)
+{
+	// создание пустого множества для хранения элементов числового ряда
+	std::vector<int> elements(n + 1);
+	// задание значений первых элементов в ряду
+	elements[0] = 0;
+	elements[1] = 1;
+	// выполняем сложение двух соседних элементов
+	// для нахождения каждого следующего
+	for (int i = 0; i < (n - 1); i++)
 	{
-		return 0;
-	} else if (n == 1)
-	{
-		return 1;
+		elements[i + 2] = elements[i] + elements[i + 1];
 	}
-    return fib(n - 1) + fib(n - 2);
+	return elements[n];
 }
 
 void calcFib() {
